@@ -1,0 +1,9 @@
+{
+	"name": "one-adf-practice",
+	"location": "centralindia",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "c613794a-51b4-415e-9eb8-529f80148905",
+		"tenantId": "b4334bad-b9cb-466d-977b-03d3b332f0a0"
+	}
+}
