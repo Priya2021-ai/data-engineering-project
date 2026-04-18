@@ -2,7 +2,7 @@
 
 ## Overview
 
-This project demonstrates a complete data engineering pipeline using Azure services. Data is ingested using Azure Data Factory, transformed using PySpark in Azure Databricks, stored in Azure Data Lake Storage (ADLS Gen2), loaded into Azure Synapse Analytics, and visualized using Power BI.
+This project demonstrates a complete data engineering pipeline using Azure services. Data is ingested using Azure Data Factory, transformed using PySpark in Azure Databricks, stored in Azure Data Lake Storage (ADLS Gen2), loaded into Azure Synapse Analytics and visualized using Power BI.
 ## Architecture
 
 ADF → ADLS (Bronze) → Databricks (Silver) → ADLS → Synapse (Gold) → Power BI
