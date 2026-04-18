@@ -1,52 +1,64 @@
-# Azure Data Engineering Project
+# Azure End-to-End Data Engineering Project
 
 ## Overview
-This project focuses on building a dynamic data ingestion pipeline using Azure Data Factory. The goal was to understand how data can be ingested, processed, and stored in a scalable way, along with implementing version control using GitHub.
 
+This project demonstrates a complete data engineering pipeline using Azure services. Data is ingested using Azure Data Factory, transformed using PySpark in Azure Databricks, stored in Azure Data Lake Storage (ADLS Gen2), loaded into Azure Synapse Analytics, and visualized using Power BI.
 ## Architecture
-Source (Git/Blob Storage) → Azure Data Factory → ADLS Gen2 (Raw Layer)
 
-## Tools & Technologies
-- Azure Data Factory (ADF)
-- Azure Data Lake Storage Gen2 (ADLS)
-- GitHub (Version Control)
-- JSON-based pipeline configuration
+ADF → ADLS (Bronze) → Databricks (Silver) → ADLS → Synapse (Gold) → Power BI
 
-## Pipeline Flow
-- A Lookup activity is used to fetch metadata dynamically (for example, list of files).
-- Based on the Lookup output, a ForEach activity iterates over each item.
-- Inside the loop, data is processed and moved to the Raw layer in ADLS.
+## Data Pipeline Flow
 
-## Key Concepts Implemented
-- Dynamic pipeline design using Lookup and ForEach
-- Parameterization and use of expressions
-- Activity dependency management using `dependsOn`
-- Metadata-driven processing approach
-- Git integration in ADF for version control
+### 1. Data Ingestion (ADF)
 
-## Version Control
-- ADF is integrated with GitHub for tracking changes
-- main branch is used for development
-- adf_publish branch is used for publishing ARM templates
-- Each change is committed and can be tracked in Git history
+* Data is ingested from source systems
+* Pipelines are built using Azure Data Factory
+* Data is stored in ADLS Gen2 (Bronze Layer)
 
-## Project Structure
-- adf/pipeline → Contains pipeline JSON files
-- adf/dataset → Dataset definitions
-- adf/linkedService → Source and sink connections
-- adf/factory → Factory-level configuration
+### 2. Data Transformation (Databricks - Silver Layer)
+
+* Used PySpark for data transformation
+* Extracted Month and Year from Date column
+* Created fullName column using Prefix, FirstName, LastName
+* Cleaned Product data using split functions
+* Converted string data into proper date format
+* Stored transformed data in ADLS Gen2 (Parquet format)
+
+### 3. Data Warehousing (Synapse - Gold Layer)
+
+* Loaded transformed data into Azure Synapse Analytics
+* Created structured tables for reporting and analytics
+
+### 4. Data Visualization (Power BI)
+
+* Connected Power BI with Synapse
+* Built dashboards for business insights
+* Visualized customer, product, and sales data
+
+## Technologies Used
+
+* Azure Data Factory (ADF)
+* Azure Databricks (PySpark)
+* Azure Data Lake Storage Gen2 (ADLS)
+* Azure Synapse Analytics
+* Power BI
+* GitHub
+
+## Storage Path
+
+abfss://silver@dataengineer01.dfs.core.windows.net/
 
 ## Key Learnings
-- Understanding how ADF pipelines are internally represented in JSON
-- Building reusable and scalable pipelines
-- Managing changes using Git integration
-- Working with dynamic and parameterized workflows
 
-## Conclusion
-This project helped me understand how real-world data pipelines are designed in Azure Data Factory and how version control plays an important role in managing data engineering workflows.
+* Built end-to-end data pipeline
+* Worked with real-world data transformations
+* Implemented Bronze-Silver-Gold architecture
+* Integrated multiple Azure services
+* Handled data cleaning and transformation using PySpark
 
 ## Future Enhancements
-- Data transformation using Azure Databricks
-- Data warehousing using Azure Synapse Analytics
-- Visualization using Power BI
 
+* Add incremental data loading
+* Implement data quality checks
+* Optimize performance using partitioning
+* Enhance dashboards with advanced analytics
