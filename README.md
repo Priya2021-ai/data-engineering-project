@@ -2,7 +2,8 @@
 
 ## Overview
 
-This project demonstrates a complete data engineering pipeline using Azure services. Data is ingested using Azure Data Factory, transformed using PySpark in Azure Databricks, stored in Azure Data Lake Storage (ADLS Gen2), loaded into Azure Synapse Analytics and visualized using Power BI.
+This project demonstrates a complete data engineering pipeline using Azure services. Data is ingested using Azure Data Factory, transformed using PySpark in Azure Databricks, stored in Azure Data Lake Storage (ADLS Gen2), loaded into Azure Synapse Analytics and visualized using Power BI.The goal is to ingest raw data, transform it across multiple layers and generate meaningful business insights.
+
 ## Architecture
 
 ADF → ADLS (Bronze) → Databricks (Silver) → ADLS → Synapse (Gold) → Power BI
@@ -27,13 +28,17 @@ ADF → ADLS (Bronze) → Databricks (Silver) → ADLS → Synapse (Gold) → Po
 ### 3. Data Warehousing (Synapse - Gold Layer)
 
 * Loaded transformed data into Azure Synapse Analytics
-* Created structured tables for reporting and analytics
+* Created external tables and views in Gold layer using SQL for reporting and analytics
 
 ### 4. Data Visualization (Power BI)
 
 * Connected Power BI with Synapse
 * Built dashboards for business insights
 * Visualized customer, product, and sales data
+* Identified Top 5 Products using Top N filter
+* Used Sum of OrderQuantity for aggregation
+* Designed Pie Chart for product distribution
+* Applied filters for better data readability
 
 ## Technologies Used
 
