@@ -32,13 +32,15 @@ ADF → ADLS (Bronze) → Databricks (Silver) → ADLS → Synapse (Gold) → Po
 
 ### 4. Data Visualization (Power BI)
 
-* Connected Power BI with Synapse
-* Built dashboards for business insights
-* Visualized customer, product, and sales data
-* Identified Top 5 Products using Top N filter
-* Used Sum of OrderQuantity for aggregation
-* Designed Pie Chart for product distribution
-* Applied filters for better data readability
+* Connected Power BI with Azure Synapse Analytics
+*  Built interactive dashboards for business insights
+*  Visualized customer, product, and sales data using bar charts and pie charts
+*  Used different colors to distinguish categories and improve readability
+*  Applied Top N filter to identify top-performing products
+*  Used aggregation functions like SUM (OrderQuantity) for analysis
+* Designed visuals with proper formatting, labels, and titles for clarity
+* Applied filters and slicers for better data exploration
+* Followed data visualization best practices (contrast, readability, and visual hierarchy)
 
 ## Technologies Used
 
