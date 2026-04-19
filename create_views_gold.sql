@@ -2,7 +2,7 @@
 CREATE VIEW gold.calendar AS
 SELECT *
 FROM OPENROWSET(
-    BULK 'https://dataengineer01.blob.core.windows.net/cleaneddata-s/AdventureWorks_Calendar/*.parquet',
+    BULK 'https://dataengineer01.dfs.core.windows.net/cleaneddata-s/AdventureWorks_Calendar/*.parquet',
     FORMAT = 'PARQUET'
 ) AS query1;
 
@@ -86,3 +86,4 @@ FROM OPENROWSET(
     BULK 'https://dataengineer01.blob.core.windows.net/cleaneddata-s/AdventureWorks_Territories/*.parquet',
     FORMAT = 'PARQUET'
 ) AS query1;
+SELECT*FROM gold.territories;

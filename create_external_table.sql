@@ -14,3 +14,7 @@ WITH (
 AS
 SELECT * from gold.sales_2017;
 
+
+SELECT * from extsales;
+
+
